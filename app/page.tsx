@@ -1,13 +1,11 @@
-'use client';
 import { Header } from "@/components/Header";
-import { WeatherAppProvider } from "./context/WeatherAppContext";
+import { WeatherTile } from "@/components/WeatherTile";
 
 export default function Home() {
   return (
-    <WeatherAppProvider>
-      <main className="min-h-screen">
-        <Header />
-      </main>
-    </WeatherAppProvider>
+    <main className="min-h-screen w-full">
+      <Header />
+      <WeatherTile />
+    </main>
   );
 }
