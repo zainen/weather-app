@@ -1,35 +1,52 @@
 'use client'
-import { FC, ReactNode, createContext, useContext, useState } from 'react';
-import { Units } from '../helpers/constants';
+import { FC, ReactNode, createContext, useContext, useEffect, useState } from 'react';
+import { TemperatureUnitsEnum } from '../helpers/constants';
+import { CurrentWeatherResponse } from '../helpers/types';
 
 export interface DefaultContextType {
-  tempUnits: Units;
+  temperatureUnits?: TemperatureUnitsEnum;
   toggleUnit: () => void;
+  weather?: CurrentWeatherResponse;
+  setWeather: React.Dispatch<React.SetStateAction<CurrentWeatherResponse | undefined>>;
 }
 
-const WeatherAppContext = createContext<DefaultContextType | undefined>(undefined);
+const WeatherAppContext = createContext<DefaultContextType>({
+  temperatureUnits: TemperatureUnitsEnum.C,
+  toggleUnit: () => {},
+  weather: undefined,
+  setWeather: () => {},
+});
 
 interface AppProviderProps {
   children: ReactNode;
 }
 export const WeatherAppProvider: FC<AppProviderProps> = ({ children }: { children: ReactNode }) => {
-  const tempUnit = localStorage.getItem('tempUnits');
-  tempUnit === null ? localStorage.setItem("tempUnits", Units.C) : null;
-  const [tempUnits, setTempUnits] = useState(tempUnit || Units.C);
+  const [temperatureUnits, setTemperatureUnits] = useState<TemperatureUnitsEnum | undefined>();
+  const [weather, setWeather] = useState<CurrentWeatherResponse | undefined>();
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const getUnit =  localStorage.getItem('temperatureUnits');
+      getUnit === null ? localStorage.setItem("temperatureUnits", TemperatureUnitsEnum.C) : null;
+      setTemperatureUnits(getUnit as TemperatureUnitsEnum || TemperatureUnitsEnum.C);
+    }
+  }, [])
+  
 
   const toggleUnit = () => {
-    if (tempUnits === Units.C) {
-      setTempUnits(Units.F);
-      localStorage.setItem('tempUnits', Units.F);
-    } else if (tempUnits === Units.F) {
-      setTempUnits(Units.C);
-      localStorage.setItem('tempUnits', Units.C);
+    if (temperatureUnits === TemperatureUnitsEnum.C) {
+      setTemperatureUnits(TemperatureUnitsEnum.F);
+      localStorage.setItem('temperatureUnits', TemperatureUnitsEnum.F);
+    } else if (temperatureUnits === TemperatureUnitsEnum.F) {
+      setTemperatureUnits(TemperatureUnitsEnum.C);
+      localStorage.setItem('temperatureUnits', TemperatureUnitsEnum.C);
     }
   };
 
   const sharedState = {
-    tempUnits: tempUnits as Units,
+    temperatureUnits: temperatureUnits as TemperatureUnitsEnum,
     toggleUnit,
+    weather,
+    setWeather,
   };
 
   return (

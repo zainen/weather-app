@@ -1,11 +1,11 @@
-import { Units } from "./constants";
+import { TemperatureUnitsEnum } from "./constants";
 
-export const unitCoverter = (value: number, units: Units) => {
+export const unitCoverter = (value: number, TemperatureUnitsEnum: TemperatureUnitsEnum) => {
 
-  switch (units) {
-    case Units.C:
+  switch (TemperatureUnitsEnum) {
+    case TemperatureUnitsEnum.C:
       return value;
-    case Units.F:
+    case TemperatureUnitsEnum.F:
       return Math.round((value - 32) * (5 / 9));
   }
 }

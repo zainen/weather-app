@@ -1,6 +1,6 @@
-export enum Units {
+export enum TemperatureUnitsEnum {
   "C" = "C",
-  
-  // the not even low key bad choice for tempurature units...
+
+  // the not even low key bad choice for tempurature TemperatureUnitsEnum...
   "F" = "F"
 }
