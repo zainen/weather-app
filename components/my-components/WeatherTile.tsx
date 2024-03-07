@@ -1,8 +1,8 @@
 'use client';
 import { WeatherAppProvider } from "@/app/context/WeatherAppContext";
 import { TempOptions } from "./TempOptions";
-import { Card } from "./ui/card";
-import { SearchCity } from "./my-components/SearchCity";
+import { Card } from "../ui/card";
+import { SearchCity } from "./SearchCity";
 
 const WeatherTile = () => {
   return (

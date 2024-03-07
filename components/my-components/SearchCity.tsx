@@ -42,7 +42,7 @@ const SearchCity = () => {
   return (
     <div className="w-full flex flex-col justify-center sm:flex-row sm:justify-between">
       <div className="w-full sm:mr-4">
-        <Label htmlFor="search-bar" className="pl-3">Location</Label>
+        <Label htmlFor="search-bar" className="pl-1">Location</Label>
         <Input placeholder="City, State, Country" className="mr-4" onChange={(e) => handleChange(e)} onKeyDown={(e) => handleKeyDown(e)}/>
       </div>
       <div className="flex items-end">

@@ -1,4 +1,4 @@
-import { WeatherTile } from "@/components/WeatherTile";
+import { WeatherTile } from "@/components/my-components/WeatherTile";
 
 export default function Home() {
   return (

@@ -1,6 +1,6 @@
 'use client';
 import { TemperatureUnitsEnum } from "@/app/helpers/constants";
-import { Switch } from "./ui/switch";
+import { Switch } from "../ui/switch";
 import { useWeatherAppContext } from "@/app/context/WeatherAppContext";
 
 const TempOptions = () => {
