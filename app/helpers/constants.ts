@@ -1,6 +1,5 @@
 export enum TemperatureUnitsEnum {
-  "C" = "C",
-
+  C = "C",
   // the not even low key bad choice for tempurature TemperatureUnitsEnum...
-  "F" = "F"
+  F = "F"
 }

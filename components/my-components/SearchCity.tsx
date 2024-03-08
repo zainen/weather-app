@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { CurrentWeatherResponse } from "@/app/helpers/types";
 import { useWeatherAppContext } from "@/app/context/WeatherAppContext";
 
+// TODO sanitize input DOUBLE CHECK ',' how openweather uses them
 const SearchCity = () => {
   const {setWeather} = useWeatherAppContext();
 
