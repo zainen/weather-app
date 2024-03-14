@@ -1,9 +1,11 @@
 const Header = () => {
-  return <div className="h-fit w-full justify-between px-4 py-2">
-    <h1>
-      Weather App
-    </h1>
-  </div>
+  return (
+    <div className="container mx-auto p-5 flex justify-between items-center">
+            <h1 className="text-3xl font-bold">
+                ClearView Horizons
+            </h1>
+        </div>
+    )
 }
 
 export { Header }

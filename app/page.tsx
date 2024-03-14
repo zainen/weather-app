@@ -1,9 +1,9 @@
-import { WeatherTile } from "@/components/my-components/WeatherTile";
+import { WeatherContainer } from "@/components/my-components/WeatherContainer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full">
-      <WeatherTile />
+    <main className="min-h-screen w-full bg-primary-dark">
+      <WeatherContainer />
     </main>
   );
 }

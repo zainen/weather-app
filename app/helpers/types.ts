@@ -27,7 +27,7 @@ export interface DayWeather {
   base: string;
   main: TemperatureMain;
   visibility: number;
-  wind: { speed: number; deg: number };
+  wind: { speed: number; deg: number; gust?: number; };
   clouds: { all: number };
   dt: number;
   sys: {
@@ -85,7 +85,37 @@ export interface FiveDayWeather {
   };
 }
 
+export interface CustomDayForecast {
+  temp_max: number;
+  temp_min: number;
+  dt: number;
+  weather_id: number;
+
+}
+export type UpcomingForecast = CustomDayForecast[];
+
 export interface CurrentWeatherResponse {
   day: DayWeather;
   fiveDay: FiveDayWeather;
 }
+
+
+
+export interface WeatherApiResponse {
+  day: DayWeather;
+  // TODO maybe feature
+  // nextTwelveHours: FiveDayListItem[];
+  nextDays: UpcomingForecast;
+}
+
+// currently neglecting other date that may not be needed
+export interface SuggestedLocationName {
+  name: string;
+  state?: string;
+  country: string;
+  lat: number;
+  lon: number;
+  local_names: Record<string, string>;
+}
+
+export type formattedSuggestions = string[];

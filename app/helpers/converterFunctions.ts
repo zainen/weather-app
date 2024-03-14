@@ -6,23 +6,34 @@ export const unitCoverter = (value: number, units: TemperatureUnitsEnum) => {
     case TemperatureUnitsEnum.C:
       return value;
     case TemperatureUnitsEnum.F:
-      return Math.round((value - 32) * (5 / 9));
+      return Math.round(value * 1.8 + 32 );
   }
 }
 
-export const checkDaytime = (sunset: number) => {
-  const time = Math.round(new Date().getTime() / 1000)
-  return time < sunset;
-}
+export const checkDaytime = (sunset: number | boolean) => {
+  // allow force to day or night TRUE === Day FALSE == night
+  if (typeof sunset === "boolean") return sunset;
+  const time = Math.round(new Date().getTime() / 1000);
+  return time <= sunset;
+};
 
+// since Openweather time is in seconds
+export const secondsToMillisec = (seconds: number) =>{
+  return seconds * 1000;
+};
+
+export const twelveHoursMillis = () => {
+  return 60 * 60 * 12 * 1000;
+};
 
 export const humanReadableTime = (time: number): string => {
-  const hour = new Date(time * 1000).getHours().toString();
-  const min = new Date(time * 1000).getMinutes().toString();
+  const mili = secondsToMillisec(time)
+  const hour = new Date(mili).getHours().toString();
+  const min = new Date(mili).getMinutes().toString();
   const checkMinute = `0${min}`.slice(min.length - 1);
   return `${hour}:${checkMinute}`;
-} 
+};
 
 export const visibilityDistanceToPercent = (distance: number): string => {
-  return `${distance / 100}%`
-}
+  return `${distance / 100}%`;
+};

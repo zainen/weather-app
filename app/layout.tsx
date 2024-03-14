@@ -25,12 +25,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+          <meta charSet="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>ClearView Horizons</title>
+      </head>
       <body className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-monserrat antialiased",
           fontSans.variable
         )}>
           <Header />
-
           {children}
           </body>
     </html>

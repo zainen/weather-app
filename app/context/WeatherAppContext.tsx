@@ -1,28 +1,23 @@
-'use client'
+'use client';
 import { FC, ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { TemperatureUnitsEnum } from '../helpers/constants';
-import { CurrentWeatherResponse } from '../helpers/types';
+import { WeatherApiResponse } from '../helpers/types';
 
 export interface DefaultContextType {
-  temperatureUnits?: TemperatureUnitsEnum;
+  temperatureUnits: TemperatureUnitsEnum;
   toggleUnit: () => void;
-  weather?: CurrentWeatherResponse;
-  setWeather: React.Dispatch<React.SetStateAction<CurrentWeatherResponse | undefined>>;
+  weather?: WeatherApiResponse;
+  setWeather: React.Dispatch<React.SetStateAction<WeatherApiResponse | undefined>>;
 }
 
-const WeatherAppContext = createContext<DefaultContextType>({
-  temperatureUnits: TemperatureUnitsEnum.C,
-  toggleUnit: () => {},
-  weather: undefined,
-  setWeather: () => {},
-});
+export const WeatherAppContext = createContext<DefaultContextType | null>(null);
 
 interface AppProviderProps {
   children: ReactNode;
 }
 export const WeatherAppProvider: FC<AppProviderProps> = ({ children }: { children: ReactNode }) => {
   const [temperatureUnits, setTemperatureUnits] = useState<TemperatureUnitsEnum | undefined>();
-  const [weather, setWeather] = useState<CurrentWeatherResponse | undefined>();
+  const [weather, setWeather] = useState<WeatherApiResponse | undefined>();
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const getUnit =  localStorage.getItem('temperatureUnits');
@@ -51,11 +46,15 @@ export const WeatherAppProvider: FC<AppProviderProps> = ({ children }: { childre
 
   return (
     <WeatherAppContext.Provider value={sharedState}>
-        {children}
+      {children}
     </WeatherAppContext.Provider>
   )
 }
 
 export function useWeatherAppContext() {
-  return useContext(WeatherAppContext);
+  const context = useContext(WeatherAppContext);
+  if (!context) {
+    throw new Error('useWeatherAppContext must be used within a WeatherAppProvider');
+  }
+  return context;
 }
