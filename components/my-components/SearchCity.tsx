@@ -16,7 +16,6 @@ const SearchCity = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [autocompleteCities, setAutocompleteCities] = useState<formattedSuggestions>([])
-  // WARNING check why debounce returns type 'any'
   const [debounced] = useDebounce<string>(searchQuery, 1000);
 
   useEffect(() => {
