@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ClearView Horizons
+
+Welcome to **ClearView Horizons**, the straightforward and sleek weather app designed for those who prefer a clean, ad-free experience and value quick loading times alongside essential weather information.
 
 ## Getting Started
 
-First, run the development server:
+To use **ClearView Horizons**, you'll first need to secure an API key from OpenWeatherMap, which allows the app to fetch the latest weather data. Follow these steps to get everything set up:
+
+### Step 1: Obtain an API Key
+
+1. Visit [OpenWeatherMap](https://openweathermap.org/) and create a free account if you haven't already. You can [sign up here](https://home.openweathermap.org/users/sign_up).
+2. If you already have an account, simply [log in](https://home.openweathermap.org/users/sign_in).
+3. Once logged in, navigate to the [API keys section](https://home.openweathermap.org/api_keys) and create a new API key for your application.
+
+### Step 2: Configure Your Application
+
+1. Copy the newly created API key.
+2. Find the `.env.example` file in the root directory of your application.
+3. Paste your API key into this file where specified.
+4. Rename the file from `.env.example` to `.env`. This ensures your API key is utilized by the application and kept secure.
+
+### Step 3: Run the Application Locally
+
+With your API key configured, you're ready to launch the app locally. Execute the following commands in your terminal:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install    # Installs the necessary packages
+npm run dev    # Runs the application in development mode
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
