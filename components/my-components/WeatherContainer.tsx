@@ -15,7 +15,7 @@ const WeatherContainer = () => {
           <Card className={`max-w-6xl h-fit flex-grow flex flex-col p-2 m-2 sm:p-5 sm:m-5 md:p-10 md:m-10 bg-primary-dark border-none shadow-lg`}>
             <div className="flex flex-col-reverse sm:flex-row justify-center sm:justify-between">
               <SearchCity />
-              <div className="h-full flex flex-col justify-center items-end sm:pt-6">
+              <div className="h-full flex flex-col justify-center items-end sm:pt-7 md:pt-8">
                 <TempOptions />
               </div>
             </div>

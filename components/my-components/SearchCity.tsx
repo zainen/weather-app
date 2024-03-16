@@ -103,8 +103,8 @@ const SearchCity = () => {
     <div className="w-full">
       <div className="w-full flex flex-col justify-center sm:flex-row sm:justify-between">
         <div className="w-full sm:mr-4">
-          <Label htmlFor="search-bar" className="pl-1">Location</Label>
-          <Input  placeholder="City, State, Country" onFocus={() => setError('')} className={`text-primary-dark bg-primary-light shadow-lg mr-4 mb-4 sm:mb-0 ${error ? "border-warn border-2" : ""}`} list='places' onChange={(e) => handleChange(e)} onKeyDown={(e) => handleKeyDown(e)} pattern={autocompleteCities.join("|")} autoComplete="off"/>
+          <Label htmlFor="search-bar" className="sm:text-xl md:text-2xl pl-1">Location</Label>
+          <Input  placeholder="City, State, Country" onFocus={() => setError('')} className={`text-lg text-primary-dark bg-primary-light shadow-lg mr-4 mb-4 sm:mb-0 ${error ? "border-warn border-2" : ""}`} list='places' onChange={(e) => handleChange(e)} onKeyDown={(e) => handleKeyDown(e)} pattern={autocompleteCities.join("|")} autoComplete="off"/>
           <datalist id='places' className="">
             {autocompleteCities.map((city, i) => (
               <option key={i} onClick={() => setSearchQuery(city)} value={city}></option>
