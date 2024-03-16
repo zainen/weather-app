@@ -2,6 +2,10 @@
 
 Welcome to **ClearView Horizons**, the straightforward and sleek weather app designed for those who prefer a clean, ad-free experience and value quick loading times alongside essential weather information.
 
+## Live Site
+
+https://weather-app-zeta-sage.vercel.app/
+
 ## Getting Started
 
 To use **ClearView Horizons**, you'll first need to secure an API key from OpenWeatherMap, which allows the app to fetch the latest weather data. Follow these steps to get everything set up:
