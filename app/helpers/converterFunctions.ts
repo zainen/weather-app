@@ -1,12 +1,12 @@
 import { TemperatureUnitsEnum } from "./constants";
 
-export const unitCoverter = (value: number, units: TemperatureUnitsEnum) => {
+export const unitConverter = (valueCelsius: number, units: TemperatureUnitsEnum) => {
 
   switch (units) {
     case TemperatureUnitsEnum.C:
-      return value;
+      return valueCelsius;
     case TemperatureUnitsEnum.F:
-      return Math.round(value * 1.8 + 32 );
+      return Math.round(valueCelsius * 1.8 + 32 );
   }
 }
 
@@ -20,10 +20,6 @@ export const checkDaytime = (sunset: number | boolean) => {
 // since Openweather time is in seconds
 export const secondsToMillisec = (seconds: number) =>{
   return seconds * 1000;
-};
-
-export const twelveHoursMillis = () => {
-  return 60 * 60 * 12 * 1000;
 };
 
 export const humanReadableTime = (time: number): string => {

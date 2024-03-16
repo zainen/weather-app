@@ -23,6 +23,9 @@ export async function GET(request: NextRequest) {
           revalidate: 86400
         }
       });
+    if (suggestionsResponse.status !==  200) {
+      return NextResponse.json({ message: "Bad Request" }, { status: 400 });
+    }
     const suggestionsJSON: SuggestedLocationName[] = await suggestionsResponse.json();
     const formattedSuggestions: formattedSuggestions = suggestionsJSON.map(item => {
       const { name: city, state, country } = item;

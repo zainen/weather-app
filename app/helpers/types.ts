@@ -90,7 +90,7 @@ export interface CustomDayForecast {
   temp_min: number;
   dt: number;
   weather_id: number;
-
+  weather_main: string;
 }
 export type UpcomingForecast = CustomDayForecast[];
 

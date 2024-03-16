@@ -8,6 +8,12 @@ export interface DefaultContextType {
   toggleUnit: () => void;
   weather?: WeatherApiResponse;
   setWeather: React.Dispatch<React.SetStateAction<WeatherApiResponse | undefined>>;
+  currentWeatherQuery: string;
+  setCurrentWeatherQuery: React.Dispatch<React.SetStateAction<string>>;
+  error: string;
+  setError: React.Dispatch<React.SetStateAction<string>>;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const WeatherAppContext = createContext<DefaultContextType | null>(null);
@@ -18,6 +24,10 @@ interface AppProviderProps {
 export const WeatherAppProvider: FC<AppProviderProps> = ({ children }: { children: ReactNode }) => {
   const [temperatureUnits, setTemperatureUnits] = useState<TemperatureUnitsEnum | undefined>();
   const [weather, setWeather] = useState<WeatherApiResponse | undefined>();
+  const [currentWeatherQuery, setCurrentWeatherQuery] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const getUnit =  localStorage.getItem('temperatureUnits');
@@ -42,6 +52,12 @@ export const WeatherAppProvider: FC<AppProviderProps> = ({ children }: { childre
     toggleUnit,
     weather,
     setWeather,
+    currentWeatherQuery,
+    setCurrentWeatherQuery,
+    error,
+    setError,
+    isLoading,
+    setIsLoading,
   };
 
   return (

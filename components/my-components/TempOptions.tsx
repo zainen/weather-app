@@ -7,12 +7,12 @@ const TempOptions = () => {
   const { toggleUnit, temperatureUnits } = useWeatherAppContext();
   
   return (
-    <div className="flex self-end p-2">
-      <p className="text-gray-500 dark:text-gray-400 px-2">
+    <div className="flex p-2">
+      <p className="px-2">
         {TemperatureUnitsEnum.F}
       </p>
-      <Switch className="data-[state=checked]:bg-cyan-700" onClick={toggleUnit} checked={temperatureUnits === TemperatureUnitsEnum.C}/>
-      <p className="text-gray-500 dark:text-gray-400 px-2">
+      <Switch className="data-[state=checked]:bg-cyan-600 shadow-lg" onClick={toggleUnit} checked={temperatureUnits === TemperatureUnitsEnum.C}/>
+      <p className="px-2">
         {TemperatureUnitsEnum.C}
       </p>
     </div>

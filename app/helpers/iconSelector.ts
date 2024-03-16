@@ -1,9 +1,8 @@
 import { faSun, faMoon, faCloud, faCloudSun, faCloudMoon, faCloudSunRain, faCloudRain, faCloudMoonRain, faCloudShowersHeavy, faCloudBolt, faSnowflake, IconDefinition, faSmog, faTemperature2, faTemperature3, faTemperature0, faTemperature1  } from "@fortawesome/free-solid-svg-icons"
 
-type TimeOfDay = "day" | "night"
-
 export const iconSelector = (openWeatherConditionCode: number, isDaytime: boolean): IconDefinition => {
   // weather-conditions code from OpenWeather https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
+  // going based off code with assumption that code will be more consistent than icon code
   // 2xx
   if (openWeatherConditionCode < 300) {
     return faCloudBolt;
@@ -25,7 +24,6 @@ export const iconSelector = (openWeatherConditionCode: number, isDaytime: boolea
     return faSnowflake;
   // 7xx
   } else if (openWeatherConditionCode < 800) {
-    // TODO
     return faSmog;
   // 8xx
   } else if (openWeatherConditionCode === 800) {
@@ -36,6 +34,12 @@ export const iconSelector = (openWeatherConditionCode: number, isDaytime: boolea
     }
   }
   return faCloud;
+}
+
+export const colourSelector = (condition: string, isDaytime: boolean): string => {
+
+  const postfix = isDaytime ? '-day' : '-night';
+  return condition + postfix
 }
 
 export const tempuraturesIconSelector = (temp: number): IconDefinition => {

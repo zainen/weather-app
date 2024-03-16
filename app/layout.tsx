@@ -31,7 +31,7 @@ export default function RootLayout({
           <title>ClearView Horizons</title>
       </head>
       <body className={cn(
-          "min-h-screen bg-background font-monserrat antialiased",
+          "min-h-screen bg-background font-monserrat antialiased bg-custom-bg text-primary-light",
           fontSans.variable
         )}>
           <Header />

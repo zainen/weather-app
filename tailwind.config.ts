@@ -23,24 +23,13 @@ const config = {
     },
     extend: {
       colors: {
-        "thunderstorm-day": "#4D5B6B",
-        "drizzle-day": "#7393A7",
-        "rain-day": "#577590",
-        "snow-day": "#95A5A6",
-        "atmosphere-day": "#B2BEC3",
-        "clear-day": "#48A9A6",
-        "clouds-day": "#778DA9",
-        "thunderstorm-night": "#334551",
-        "drizzle-night": "#506974",
-        "rain-night": "#3B4E5A",
-        "snow-night": "#6C7D8B",
-        "atmosphere-night": "#546A7B",
-        "clear-night": "#2C3E50",
-        "clouds-night": "#475B64",
+        "primary-dark": "#355C7D",
+        "primary-light": "#E0E0E0",
+        "light-darker": "#999999",
+        "warn": "#D32F2F",
+        "light-blue": "#648CAE",
+        "custom-bg": "#1D334B"
 
-        "primary-dark": "#2B2D42 ",
-        "primary-light": '#E0E1DD',
-        "secondary-text": '#A9B2AC',
       },
       keyframes: {
         "accordion-down": {
